@@ -1,0 +1,9 @@
+#General
+/__pycache__/*
+.DS_Store
+.vscode
+*.pyc
+.idea
+
+#virtual environment
+/leetcode-packages/*
