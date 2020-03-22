@@ -4,6 +4,7 @@
 .vscode
 *.pyc
 .idea
+.env
 
 #virtual environment
 /leetcode-packages/*
