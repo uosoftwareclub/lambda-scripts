@@ -1,4 +1,3 @@
-import user_info
 import requests
 import os
 import json
@@ -17,7 +16,9 @@ headers = {
   'auth-token': key
 }
 
-usernames = user_info.USERNAMES
+get_url = api_url + api_version + '/users'
+usernames_req = requests.get(get_url, data=json.dumps({}), headers=headers)
+usernames = [user['username'] for user in usernames_req.json()]
 
 for username in usernames:
   URL = 'https://leetcode.com/' + username
@@ -29,7 +30,7 @@ for username in usernames:
   ngInitTag = mydivs['ng-init']
   tags = ngInitTag.split('pc.init(')[1]
   ranks_array = []
-
+  
   try:
     ranks = tags.split('[[')[1].split(']]')[0]
     formatted_ranks = '[[' + ranks + ']]'
@@ -42,6 +43,6 @@ for username in usernames:
   body = {
     'ranks': ranks_array
   }
-  url = api_url + api_version + '/users/' + username + '/ranks'
-  req = requests.post(url, data=json.dumps(body), headers=headers)
+  update_url = api_url + api_version + '/users/' + username + '/ranks'
+  req = requests.post(update_url, data=json.dumps(body), headers=headers)
   print((username, ranks_array))
