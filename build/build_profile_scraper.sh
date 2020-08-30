@@ -5,7 +5,7 @@ lambda_dir=$PWD
 set -e
 
 printf 'Installing Python Dependencies in package...\n'
-pip3 install -r requirements.txt -t ./package --system
+pip3 install -r requirements.txt -t ./package
 
 printf '\nPackaging Dependencies into zip...\n'
 cd package
