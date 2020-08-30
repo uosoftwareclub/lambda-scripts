@@ -6,5 +6,10 @@
 .idea
 .env
 
+package.zip
+
+/dependencies
+/package
+
 #virtual environment
 /leetcode-packages/*
